@@ -1,8 +1,8 @@
 sap.ui.define([
     './BaseController',
     'sap/ui/model/json/JSONModel',
-	'../model/formatter',
-	'../model/FlaggedType',
+    '../model/formatter',
+    '../model/FlaggedType',
     'sap/m/library'
 ], function(BaseController, JSONModel, formatter, FlaggedType, mobileLibrary) {
     "use strict";
@@ -11,6 +11,7 @@ sap.ui.define([
 		types : {
 			flagged: new FlaggedType()
 		},
+
 		formatter: formatter,
 
 		/* =========================================================== */
@@ -76,6 +77,19 @@ sap.ui.define([
 				sTitle = this.getResourceBundle().getText("worklistTableTitle");
 			}
 			this.getModel("worklistView").setProperty("/worklistTableTitle", sTitle);
+		},
+
+		/**
+		 * Event handler when a table item gets pressed
+		 * @param {sap.ui.base.Event} oEvent the table selectionChange event
+		 * @public
+		 */
+		onPress: function (oEvent) {
+			this.getRouter().navTo("post", {
+				// The source is the list item that got pressed
+				postId: oEvent.getSource().getBindingContext().getProperty("PostID")
+			});
+
 		},
 
 		/* =========================================================== */

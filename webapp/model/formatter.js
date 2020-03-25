@@ -16,6 +16,7 @@ sap.ui.define([], function () {
 
 			return parseFloat(sValue).toFixed(2);
 		},
+
 		/**
 		 * Defines a value state based on the price
 		 *
@@ -26,9 +27,9 @@ sap.ui.define([], function () {
 		priceState: function (iPrice) {
 			if (iPrice < 50) {
 				return "Success";
-			} else if (iPrice >= 50 && iPrice < 250) {
+			} else if (iPrice >= 50 && iPrice < 250 ) {
 				return "None";
-			} else if (iPrice >= 250 && iPrice < 2000) {
+			} else if (iPrice >= 250 && iPrice < 2000 ) {
 				return "Warning";
 			} else {
 				return "Error";
