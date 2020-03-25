@@ -39,4 +39,12 @@ sap.ui.define([
 		// Cleanup
 		Then.iTeardownMyApp();
 	});
+
+	opaTest("Should select the statistics tab", function (Given, When, Then) {
+		// Actions
+		When.onThePostPage.iPressOnTheTabWithTheKey("statistics");
+		// Assertions
+		Then.onThePostPage.iShouldSeeTheViewCounter()
+			.and.iTeardownMyApp();
+	});
 });
